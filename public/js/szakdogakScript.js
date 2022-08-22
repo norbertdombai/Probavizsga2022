@@ -3,7 +3,7 @@ $(function() {
     const token=$('meta[name="csrf-token"]').attr('content');
     const ajax=new Ajax(token);
     let szakdogakVegpont="http://127.0.0.1:8000/dashboard";
-    const feladatTomb=[];
+    const szakdogaTomb=[];
     
     ajax.getAjax(szakdogakVegpont, szakdogaTomb, szakdogaLista);
 

@@ -16,8 +16,8 @@ class szakdogaController extends Controller
     /********ÖSSZES SZAKDOGA JSON-BEN VALÓ MEGJELENÍTÉSE*****/
     public function index()
     { 
-            $szakdogak = response()->json(Szakdoga::all());
-            return $szakdogak;
+            $szakdogak = Szakdoga::all();
+            return response() ->json($szakdogak);
         
     }
     /********************************************************/
@@ -32,10 +32,10 @@ class szakdogaController extends Controller
         $szakdoga->tagokneve = $request->tagokneve;
         $szakdoga->timestamp = $request->timestamp;
         $szakdoga->save();
-        return Szakdoga::find($szakdoga->id);
-    
+
+        return redirect('/szakdogak');
     }
-    public function update(Request $request, szakdoga $szakdoga)
+    public function update(Request $request, Szakdoga $id)
     {
             $szakdoga = Szakdoga::find($id);
             $szakdoga->id = $request->id;
@@ -50,11 +50,10 @@ class szakdogaController extends Controller
     
     }
     
-    public function destroy(szakdoga $szakdoga)
+    public function destroy($id)
     {
-            Szakdoga::find($id)->delete();
-            return redirect('/szakdogak');
-    
+            $szakdoga=Szakdoga::find($id);
+            $szakdoga->delete();
     
     }
     /**

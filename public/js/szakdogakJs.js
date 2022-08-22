@@ -11,10 +11,10 @@ class Feladat{
 
     setAdat(adat){
         this.adat=adat;
-        this.szakdoga_nev=this.adat.szakdoga_nev;
-        this.tagokneve=this.adat.tagokneve;
-        this.githublink=this.adat.githublink;
-        this.oldallink=this.adat.oldallink;
+        this.szakdoga_nev.text(adat.szakdoga_nev);
+        this.tagokneve.text(adat.tagokneve);
+        this.githublink.text(adat.githublink);
+        this.oldallink.text(adat.oldallink);
     }
 }
 
